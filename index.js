@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 const sequelize = require('./config/sequelizeConfig');
 
 
@@ -22,6 +23,7 @@ sequelize.sync()
 
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
+app.use('/cart', cartRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

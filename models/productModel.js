@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/sequelizeConfig');
+const Cart = require('./cartModel'); 
 
 const Product = sequelize.define('Product', {
     nama_product: {
@@ -7,10 +8,10 @@ const Product = sequelize.define('Product', {
         allowNull: false,
     },
     size: {
-        type: DataTypes.STRING, // Menyimpan ukuran produk (misalnya: S, M, L)
+        type: DataTypes.STRING,
     },
     harga: {
-        type: DataTypes.STRING, // Menyimpan harga produk dalam format desimal
+        type: DataTypes.STRING,
     },
     category: {
         type: DataTypes.STRING,
@@ -19,5 +20,8 @@ const Product = sequelize.define('Product', {
     tableName: 'products',
     timestamps: false
 });
+
+Product.hasMany(Cart);
+Cart.belongsTo(Product);
 
 module.exports = Product;
