@@ -1,11 +1,3 @@
-// const { Sequelize } = require('sequelize');
-
-// const sequelize = new Sequelize('group-1', 'root', '', {
-//   host: 'localhost',
-//   dialect: 'mysql', // Sesuaikan dengan database Anda (mysql, postgres, dll)
-// });
-
-
 const Sequelize = require("sequelize");
 const dotenv = require("dotenv");
 
